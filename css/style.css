@@ -210,6 +210,10 @@ a:not([href]):not([tabindex]):focus {
     width: 140px;
 }
 
+.awake .logo-img {
+    width: 100px;
+}
+
 .language-flag {
     width: 40px;
     cursor: pointer;
@@ -4404,7 +4408,6 @@ input[type="button"].btn-block {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 0.5rem 1rem;
 }
 
 .navbar>.container,
@@ -4424,8 +4427,6 @@ input[type="button"].btn-block {
 
 .navbar-brand {
     display: inline-block;
-    padding-top: 0.3125rem;
-    padding-bottom: 0.3125rem;
     margin-right: 1rem;
     font-size: 1.25rem;
     line-height: inherit;
@@ -9795,7 +9796,7 @@ h5,
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
-    font-size: 16px;
+    font-size: 20px;
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 20px;
@@ -11725,28 +11726,26 @@ a {
 }
 
 .large-distance {
-    margin-top: 150px;
+    padding-top: 150px;
 }
 
 .medium-distance {
-    margin-top: 80px;
+    padding-top: 80px;
 }
 
 @media (max-width: 991.98px) {
     .navbar-collapse {
         background: #67af3e;
-        margin-left: -16px;
-        margin-right: -16px;
     }
     .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
         font-size: 20px;
         padding: 10px 30px;
     }
     .large-distance {
-        margin-top: 100px;
+        padding-top: 100px;
     }
     .medium-distance {
-        margin-top: 50px;
+        padding-top: 50px;
     }
 }
 
@@ -11760,12 +11759,14 @@ a {
 
 .sortiment-container {
     display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 991.98px) {
     .sortiment-container {
         flex-direction: column;
         align-items: center;
+        justify-content: initial;
     }
 }
 
@@ -11787,4 +11788,23 @@ a {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.fike-card-header {
+    text-align: center;
+    font-size: 30px;
+}
+
+@media (max-width: 991.98px) {
+    .cafe-image {
+        margin-bottom: 40px;
+    }
+    .navbar-brand {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .navbar {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
