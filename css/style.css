@@ -11503,7 +11503,7 @@ a {
     width: 300px;
 }
 
-.sortiment-card-header {
+.tantgron-card-header {
     color: #67af3e;
     font-size: 30px;
     white-space: nowrap;
@@ -11532,4 +11532,15 @@ a {
         padding-left: 15px;
         padding-right: 15px;
     }
+}
+
+.event-container {
+    border-radius: 10px;
+    border: 1px solid #eee;
+    padding: 110px 30px 50px 30px;
+    margin: 15px;
+}
+
+.faq-text {
+    margin-bottom: 20px;
 }
