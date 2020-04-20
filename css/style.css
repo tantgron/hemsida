@@ -212,28 +212,15 @@ a:not([href]):not([tabindex]):focus {
     width: 100px;
 }
 
+@media (max-width: 991.98px) {
+    .logo-img {
+        width: 100px;
+    }
+}
+
 .language-flag {
     width: 40px;
     cursor: pointer;
-}
-
-pre,
-code,
-kbd,
-samp {
-    font-family: monospace, monospace;
-    font-size: 1em;
-}
-
-pre {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    overflow: auto;
-    -ms-overflow-style: scrollbar;
-}
-
-figure {
-    margin: 0 0 1rem;
 }
 
 img {
@@ -247,14 +234,6 @@ svg:not(:root) {
 
 table {
     border-collapse: collapse;
-}
-
-caption {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    color: #6c757d;
-    text-align: left;
-    caption-side: bottom;
 }
 
 th {
@@ -9848,7 +9827,7 @@ h5,
 }
 
 .ftco-cover {
-    background-position: left center;
+    background-position: center center;
 }
 
 .ftco-cover .ftco-heading {
@@ -11467,10 +11446,13 @@ a {
         padding: 10px 30px;
     }
     .large-distance {
-        padding-top: 100px;
+        padding-top: 80px;
     }
     .medium-distance {
         padding-top: 50px;
+    }
+    .main-banner-container {
+        height: 80vh;
     }
 }
 
@@ -11531,6 +11513,9 @@ a {
     .navbar {
         padding-left: 15px;
         padding-right: 15px;
+    }
+    .top-heading {
+        margin-top: 130px;
     }
 }
 
