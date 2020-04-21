@@ -3,6 +3,13 @@ AOS.init({
     easing: 'slide'
 });
 
+$(function(){ 
+    var navMain = $("#ftco-nav");
+    navMain.on("click", "a", null, function () {
+        navMain.collapse('hide');
+    });
+});
+
 $(document).ready(function($) {
 
     "use strict";

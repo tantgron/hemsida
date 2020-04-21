@@ -4252,6 +4252,7 @@ input[type="button"].btn-block {
 .navbar-toggler:hover,
 .navbar-toggler:focus {
     text-decoration: none;
+    outline: none;
 }
 
 .navbar-toggler:not(:disabled):not(.disabled) {
@@ -10461,8 +10462,8 @@ a {
     margin-right: 400px;
 }
 
-.main-banner-container {
-    height: 80vh;
+.banner-container {
+    height: 90vh;
 }
 
 .round-image {
@@ -10496,6 +10497,10 @@ a {
 @media (max-width: 991.98px) {
     .navbar-collapse {
         background: #67af3e;
+        position: absolute;
+        top: 120px;
+        left: 0;
+        right: 0;
     }
     .ftco-navbar-light .navbar-nav>.nav-item>.nav-link {
         font-size: 20px;
