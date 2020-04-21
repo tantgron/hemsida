@@ -10484,6 +10484,8 @@ a {
     justify-content: center;
     align-items: center;
     font-size: 20px;
+    padding-top:30px;
+    padding-bottom: 30px;
 }
 
 .large-distance {
@@ -10512,6 +10514,8 @@ a {
     .medium-distance {
         padding-top: 50px;
     }
+
+   
 }
 
 .brand-color {
