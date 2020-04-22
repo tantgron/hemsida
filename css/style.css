@@ -299,41 +299,8 @@ h2,
 
 h3,
 .h3 {
-    font-size: 1.75rem;
-}
-
-h4,
-.h4 {
-    font-size: 1.5rem;
-}
-
-h5,
-.h5 {
     font-size: 1.25rem;
-}
-
-h6,
-.h6 {
-    font-size: 1rem;
-}
-
-hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-small,
-.small {
-    font-size: 80%;
-    font-weight: 400;
-}
-
-mark,
-.mark {
-    padding: 0.2em;
-    background-color: #fcf8e3;
+    color: #67af3e;
 }
 
 .list-unstyled {
@@ -9037,7 +9004,6 @@ h5,
 .h4,
 .h5 {
     line-height: 1.5;
-    color: #000;
     font-weight: 300;
 }
 
@@ -10489,7 +10455,6 @@ a {
 }
 
 .tantgron-card-header {
-    color: #67af3e;
     font-size: 30px;
     white-space: nowrap;
 }
