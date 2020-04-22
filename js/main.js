@@ -9,6 +9,21 @@ $(function() {
         navMain.collapse('hide');
     });
 
+    navMain.on("click", "a", null, function() {
+        navMain.collapse('hide');
+    });
+
+    $(".navbar-toggler").on("click", function() {
+        var menuBackdrop = document.getElementById("menu-backdrop");
+        var isVisible = menuBackdrop.style.display !== "none";
+
+        if (isVisible) {
+            menuBackdrop.style.display = 'none';
+        } else {
+            menuBackdrop.style.display = 'block';
+        }
+    });
+
     var scrollWindow = function() {
         $(window).scroll(function() {
             var $w = $(this),
