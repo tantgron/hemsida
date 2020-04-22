@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css?v=1">
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 
 <body>
@@ -270,46 +272,55 @@
                     <img src="images/garden5.jpg" class="round-image side-img" />
                 </div>
                 <div class="col-lg-6 order-lg-first">
-                    <h1>Presentkort</h1>
+                    <div id="presentkort-form">
 
-                    <div>Här kan vi ha en text som beskriver presentkort, vad det kostar osv?</div>
+                        <h1>Presentkort</h1>
 
-                    <form>
-                        <div class="presentkort-text">
-                            Mottagare Namn
-                        </div>
-                        <input class="form-control" />
+                        <form onsubmit="return bestallPresentkort(event)">
+                            <div>Här kan du beställa ett presentkort så skickar vi det till valfri adress</div>
 
-                        <div class="presentkort-text">
-                            Mottagare postadress
-                        </div>
-                        <input class="form-control" />
+                            <div class="presentkort-text">
+                                Mottagare Namn
+                            </div>
+                            <input id="mottagare-namn-input" class="form-control" />
 
-                        <div class="presentkort-text">
-                            Beställare email
-                        </div>
-                        <input class="form-control" />
+                            <div class="presentkort-text">
+                                Mottagare postadress
+                            </div>
+                            <input id="mottagare-postadress-input" class="form-control" />
 
-                        <div class="presentkort-text">
-                            Beställare telefonnummer
-                        </div>
-                        <input class="form-control" />
+                            <div class="presentkort-text">
+                                Beställare email
+                            </div>
+                            <input id="bestallare-email-input" class="form-control" />
 
-                        <div class="presentkort-text">
-                            Betalsätt
-                        </div>
-                        <select class="form-control">
-                            <option>Swish</option>
-                            <option>Bankgiro</option>
-                        </select>
+                            <div class="presentkort-text">
+                                Beställare telefonnummer
+                            </div>
+                            <input id="bestallare-tel-input" class="form-control" />
 
-                        <div class="presentkort-text">
-                            Märk betalningen med "prk" så skickar vi så fort vi ser att vi fått betalningen
-                        </div>
+                            <div class="presentkort-text">
+                                Betalsätt
+                            </div>
+                            <select id="betalsatt-input" class="form-control">
+                                <option>Swish</option>
+                                <option>Bankgiro</option>
+                            </select>
 
-                        <button type="submit" class="btn btn-primary bestall-btn">Beställ</button>
+                            <div class="presentkort-text">
+                                Märk betalningen med "prk" så skickar vi så fort vi ser att vi fått betalningen
+                            </div>
 
-                    </form>
+                            <button type="submit" class="btn btn-primary bestall-btn">Beställ</button>
+
+                        </form>
+                    </div>
+                    <div id="presentkort-tack-element" style="display: none;">
+                        <h1>Tack för din beställning!</h1>
+                        <div>Vi har nu skickat en bekräftelse till din email</div>
+                        <div>Vi skickar presentkortet så fort vi ser att vi fått betalningen</div>
+                    </div>
+
                 </div>
             </div>
 
