@@ -8,13 +8,7 @@ $(function() {
     navMain.on("click", "a", null, function() {
         navMain.collapse('hide');
     });
-});
 
-$(document).ready(function($) {
-
-    "use strict";
-
-    // scroll
     var scrollWindow = function() {
         $(window).scroll(function() {
             var $w = $(this),
