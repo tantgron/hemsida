@@ -13,14 +13,20 @@ $(function() {
         navMain.collapse('hide');
     });
 
-    $(".navbar-toggler").on("click", function() {
+    $("#navbar-toggler").on("click", function() {
+        var navbarToggler = document.getElementById("navbar-toggler");
         var menuBackdrop = document.getElementById("menu-backdrop");
+        var navbar = document.getElementById("ftco-navbar");
         var isVisible = menuBackdrop.style.display !== "none";
 
         if (isVisible) {
             menuBackdrop.style.display = 'none';
+            navbar.removeAttribute('style');
+            navbarToggler.classList.remove("menuopen");
         } else {
             menuBackdrop.style.display = 'block';
+            navbar.setAttribute('style', 'background: #fff !important');
+            navbarToggler.classList.add("menuopen");
         }
     });
 

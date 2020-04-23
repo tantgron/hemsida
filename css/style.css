@@ -9151,6 +9151,10 @@ h5,
     letter-spacing: .1em;
 }
 
+.ftco-navbar-light .navbar-toggler.menuopen {
+    color: rgba(0, 0, 0, 0.5) !important;
+}
+
 .ftco-navbar-light.scrolled .nav-link {
     padding-top: 0.9rem !important;
     padding-bottom: 0.9rem !important;
