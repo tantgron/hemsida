@@ -3,35 +3,45 @@ AOS.init({
     easing: 'slide'
 });
 
-$(function() {
+$(function () {
+
     var navMain = $("#ftco-nav");
-    navMain.on("click", "a", null, function() {
+    var navbarToggler = document.getElementById("navbar-toggler");
+    var menuBackdrop = document.getElementById("menu-backdrop");
+    var navbar = document.getElementById("ftco-navbar");
+
+    function closeMenu() {
+        menuBackdrop.style.display = 'none';
+        navbar.removeAttribute('style');
+        navbarToggler.classList.remove("menuopen");
         navMain.collapse('hide');
+    }
+
+    function openMenu() {
+        menuBackdrop.style.display = 'block';
+        navbar.setAttribute('style', 'background: #fff !important');
+        navbarToggler.classList.add("menuopen");
+    }
+
+    navMain.on("click", "a", null, function () {
+        closeMenu();
     });
 
-    navMain.on("click", "a", null, function() {
-        navMain.collapse('hide');
-    });
-
-    $("#navbar-toggler").on("click", function() {
+    $("#navbar-toggler").on("click", function () {
         var navbarToggler = document.getElementById("navbar-toggler");
         var menuBackdrop = document.getElementById("menu-backdrop");
         var navbar = document.getElementById("ftco-navbar");
         var isVisible = menuBackdrop.style.display !== "none";
 
         if (isVisible) {
-            menuBackdrop.style.display = 'none';
-            navbar.removeAttribute('style');
-            navbarToggler.classList.remove("menuopen");
+            closeMenu();
         } else {
-            menuBackdrop.style.display = 'block';
-            navbar.setAttribute('style', 'background: #fff !important');
-            navbarToggler.classList.add("menuopen");
+            openMenu();
         }
     });
 
-    var scrollWindow = function() {
-        $(window).scroll(function() {
+    var scrollWindow = function () {
+        $(window).scroll(function () {
             var $w = $(this),
                 st = $w.scrollTop(),
                 navbar = $('.ftco_navbar'),
