@@ -118,8 +118,21 @@ function validatePresentkortBestallning(mottagareNamn, mottagarePostadress, best
 }
 
 function sendEmail() {
+    var mottagareNamn = document.getElementById("mottagare-namn-input").value;
+    var mottagarePostadress = document.getElementById("mottagare-postadress-input").value;
+    var bestallareEmail = document.getElementById("bestallare-email-input").value;
+    var bestallareTel = document.getElementById("bestallare-tel-input").value;
+    var betalsatt = document.getElementById("betalsatt-input").value;
+
     $.get("email/emailtemplate.html")
         .done((templateData) => {
+
+            templateData = templateData.replace("#MOTTAGARENAMN#", mottagareNamn);
+            templateData = templateData.replace("#MOTTAGAREADRESS#", mottagarePostadress);
+            templateData = templateData.replace("#BESTALLAREEMAIL#", bestallareEmail);
+            templateData = templateData.replace("#BESTALLARETEL#", bestallareTel);
+            templateData = templateData.replace("#BETALSATT#", betalsatt);
+
             $.ajax({
                 url: "https://api.smtp2go.com/v3/email/send",
                 method: 'POST',
