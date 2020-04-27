@@ -153,9 +153,9 @@ function sendEmail() {
                     'to': [
                         bestallareEmail
                     ],
-                    // 'cc': [
-                    //     "info@tant-gron.nu"
-                    // ],
+                    'cc': [
+                        "info@tant-gron.nu"
+                    ],
                     'sender': "info@tant-gron.nu",
                     'subject': "Bekräftelse beställning av presentkort",
                     'html_body': templateData
