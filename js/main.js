@@ -117,6 +117,17 @@ function validatePresentkortBestallning(mottagareNamn, mottagarePostadress, best
     return isValid;
 }
 
+function emailSent() {
+    var presentkortForm = document.getElementById("presentkort-form");
+    presentkortForm.style.display = 'none';
+
+    var presentkortTackElement = document.getElementById("presentkort-tack-element");
+    presentkortTackElement.style.display = 'block';
+
+    var tackPosition = presentkortTackElement.getBoundingClientRect().top + document.documentElement.scrollTop - 100;
+    window.scrollTo(0, tackPosition);
+}
+
 function sendEmail() {
     var mottagareNamn = document.getElementById("mottagare-namn-input").value;
     var mottagarePostadress = document.getElementById("mottagare-postadress-input").value;
@@ -140,69 +151,43 @@ function sendEmail() {
                 data: JSON.stringify({
                     'api_key': "api-86B895CC88B711EA85B8F23C91BBF4A0",
                     'to': [
-                        "erik.lindh@hotmail.com"
+                        bestallareEmail
                     ],
                     'sender': "info@tant-gron.nu",
-                    'subject': "TEST-EMAIL NYA HEMSIDAN: Ny beställning presentkort",
+                    'subject': "Bekräftelse beställning av presentkort",
                     'html_body': templateData,
                 }),
             })
-                .done(function (result) { console.log(result); })
-                .fail(function (err) { throw err; });
+                .done(function (result) {
+                    emailSent();
+                })
+                .fail(function (err) {
+                    alert("Något gick fel, försök igen och kontakta oss ifall felet kvarstår");
+                    throw err;
+                });
         })
-        .fail(function (err) { throw err; });;
-
-    // $.ajax({
-    //     url: "https://api.smtp2go.com/v3/email/send",
-    //     method: 'POST',
-    //     headers: { 'Content-Type': "application/json" },
-    //     data: JSON.stringify({
-    //         'api_key': "api-86B895CC88B711EA85B8F23C91BBF4A0",
-    //         'to': [
-    //             "erik.lindh@hotmail.com"
-    //         ],
-    //         'sender': "info@tant-gron.nu",
-    //         'subject': "TEST-EMAIL NYA HEMSIDAN: Ny beställning presentkort",
-    //         'html_body': "<b>MEssage</b> <br/>Ny beställning.",
-    //     }),
-    // })
-    //     .done(function (result) { console.log(result); })
-    //     .fail(function (err) { throw err; });
+        .fail(function (err) {
+            alert("Något gick fel, försök igen och kontakta oss ifall felet kvarstår");
+            throw err;
+        });;
 }
 
 function bestallPresentkort(event) {
 
-    sendEmail();
-    // var mottagareNamn = document.getElementById("mottagare-namn-input").value;
-    // var mottagarePostadress = document.getElementById("mottagare-postadress-input").value;
-    // var bestallareEmail = document.getElementById("bestallare-email-input").value;
-    // var bestallareTel = document.getElementById("bestallare-tel-input").value;
-    // var betalsatt = document.getElementById("betalsatt-input").value;
+    var mottagareNamn = document.getElementById("mottagare-namn-input").value;
+    var mottagarePostadress = document.getElementById("mottagare-postadress-input").value;
+    var bestallareEmail = document.getElementById("bestallare-email-input").value;
+    var bestallareTel = document.getElementById("bestallare-tel-input").value;
+    var betalsatt = document.getElementById("betalsatt-input").value;
+    var bestallBtn = document.getElementById("bestall-btn").value;
 
-    // var isValid = validatePresentkortBestallning(mottagareNamn, mottagarePostadress, bestallareEmail, bestallareTel, betalsatt);
+    var isValid = validatePresentkortBestallning(mottagareNamn, mottagarePostadress, bestallareEmail, bestallareTel, betalsatt);
 
-    // if (isValid) {
-
-    //     var message = "<h1>Ny beställning av presentkort</h1>" +
-    //         "Mottagare namn: " + mottagareNamn + "<br/>" +
-    //         "Mottagare postadress: " + mottagarePostadress + "<br/>" +
-    //         "Beställare email: " + bestallareEmail + "<br/>" +
-    //         "Beställare tel: " + bestallareTel + "<br/>" +
-    //         "Betalsätt: " + betalsatt + "<br/>";
-
-    //     sendEmail();
-    //     //sendemail
-
-    //     var presentkortForm = document.getElementById("presentkort-form");
-    //     presentkortForm.style.display = 'none';
-
-    //     var presentkortTackElement = document.getElementById("presentkort-tack-element");
-    //     presentkortTackElement.style.display = 'block';
-
-    //     var tackPosition = presentkortTackElement.getBoundingClientRect().top + document.documentElement.scrollTop - 100;
-    //     window.scrollTo(0, tackPosition);
-    // }
-
+    if (isValid) {
+        bestallBtn.disabled = true;
+        bestallBtn.innerHTML = "Beställer...";
+        sendEmail();
+    }
 
     event.preventDefault();
     return false;
