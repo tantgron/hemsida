@@ -179,7 +179,7 @@ function bestallPresentkort(event) {
     var bestallareEmail = document.getElementById("bestallare-email-input").value;
     var bestallareTel = document.getElementById("bestallare-tel-input").value;
     var betalsatt = document.getElementById("betalsatt-input").value;
-    var bestallBtn = document.getElementById("bestall-btn").value;
+    var bestallBtn = document.getElementById("bestall-btn");
 
     var isValid = validatePresentkortBestallning(mottagareNamn, mottagarePostadress, bestallareEmail, bestallareTel, betalsatt);
 
