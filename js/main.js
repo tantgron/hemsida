@@ -117,23 +117,6 @@ function validatePresentkortBestallning(mottagareNamn, mottagarePostadress, best
     return isValid;
 }
 
-function getEmailTextBody() {
-    var mottagareNamn = document.getElementById("mottagare-namn-input").value;
-    var mottagarePostadress = document.getElementById("mottagare-postadress-input").value;
-    var bestallareEmail = document.getElementById("bestallare-email-input").value;
-    var bestallareTel = document.getElementById("bestallare-tel-input").value;
-    var betalsatt = document.getElementById("betalsatt-input").value;
-
-    var body = "Bekräftelse beställning av presentkort\n\n";
-    body += "Mottagare namn: " + mottagareNamn + "\n";
-    body += "Mottagare postadress: " + mottagarePostadress + "\n";
-    body += "Beställare email: " + bestallareEmail + "\n";
-    body += "Beställare telefonnummer: " + bestallareTel + "\n";
-    body += "Betalsätt: " + betalsatt + "\n";
-
-    return body;
-}
-
 function emailSent() {
     var presentkortForm = document.getElementById("presentkort-form");
     presentkortForm.style.display = 'none';
@@ -161,8 +144,6 @@ function sendEmail() {
             templateData = templateData.replace("#BESTALLARETEL#", bestallareTel);
             templateData = templateData.replace("#BETALSATT#", betalsatt);
 
-            var textBody = getEmailTextBody();
-
             $.ajax({
                 url: "https://api.smtp2go.com/v3/email/send",
                 method: 'POST',
@@ -177,8 +158,7 @@ function sendEmail() {
                     ],
                     'sender': "info@tant-gron.nu",
                     'subject': "Bekräftelse beställning av presentkort",
-                    'html_body': templateData,
-                    'text_body': textBody
+                    'html_body': templateData
                 }),
             })
                 .done(function (result) {
