@@ -117,36 +117,78 @@ function validatePresentkortBestallning(mottagareNamn, mottagarePostadress, best
     return isValid;
 }
 
+function sendEmail() {
+    $.get("email/emailtemplate.html")
+        .done((templateData) => {
+            $.ajax({
+                url: "https://api.smtp2go.com/v3/email/send",
+                method: 'POST',
+                headers: { 'Content-Type': "application/json" },
+                data: JSON.stringify({
+                    'api_key': "api-86B895CC88B711EA85B8F23C91BBF4A0",
+                    'to': [
+                        "erik.lindh@hotmail.com"
+                    ],
+                    'sender': "info@tant-gron.nu",
+                    'subject': "TEST-EMAIL NYA HEMSIDAN: Ny beställning presentkort",
+                    'html_body': templateData,
+                }),
+            })
+                .done(function (result) { console.log(result); })
+                .fail(function (err) { throw err; });
+        })
+        .fail(function (err) { throw err; });;
+
+    // $.ajax({
+    //     url: "https://api.smtp2go.com/v3/email/send",
+    //     method: 'POST',
+    //     headers: { 'Content-Type': "application/json" },
+    //     data: JSON.stringify({
+    //         'api_key': "api-86B895CC88B711EA85B8F23C91BBF4A0",
+    //         'to': [
+    //             "erik.lindh@hotmail.com"
+    //         ],
+    //         'sender': "info@tant-gron.nu",
+    //         'subject': "TEST-EMAIL NYA HEMSIDAN: Ny beställning presentkort",
+    //         'html_body': "<b>MEssage</b> <br/>Ny beställning.",
+    //     }),
+    // })
+    //     .done(function (result) { console.log(result); })
+    //     .fail(function (err) { throw err; });
+}
+
 function bestallPresentkort(event) {
 
-    var mottagareNamn = document.getElementById("mottagare-namn-input").value;
-    var mottagarePostadress = document.getElementById("mottagare-postadress-input").value;
-    var bestallareEmail = document.getElementById("bestallare-email-input").value;
-    var bestallareTel = document.getElementById("bestallare-tel-input").value;
-    var betalsatt = document.getElementById("betalsatt-input").value;
+    sendEmail();
+    // var mottagareNamn = document.getElementById("mottagare-namn-input").value;
+    // var mottagarePostadress = document.getElementById("mottagare-postadress-input").value;
+    // var bestallareEmail = document.getElementById("bestallare-email-input").value;
+    // var bestallareTel = document.getElementById("bestallare-tel-input").value;
+    // var betalsatt = document.getElementById("betalsatt-input").value;
 
-    var isValid = validatePresentkortBestallning(mottagareNamn, mottagarePostadress, bestallareEmail, bestallareTel, betalsatt);
+    // var isValid = validatePresentkortBestallning(mottagareNamn, mottagarePostadress, bestallareEmail, bestallareTel, betalsatt);
 
-    if (isValid) {
+    // if (isValid) {
 
-        var message = "<h1>Ny beställning av presentkort</h1>" +
-            "Mottagare namn: " + mottagareNamn + "<br/>" +
-            "Mottagare postadress: " + mottagarePostadress + "<br/>" +
-            "Beställare email: " + bestallareEmail + "<br/>" +
-            "Beställare tel: " + bestallareTel + "<br/>" +
-            "Betalsätt: " + betalsatt + "<br/>";
+    //     var message = "<h1>Ny beställning av presentkort</h1>" +
+    //         "Mottagare namn: " + mottagareNamn + "<br/>" +
+    //         "Mottagare postadress: " + mottagarePostadress + "<br/>" +
+    //         "Beställare email: " + bestallareEmail + "<br/>" +
+    //         "Beställare tel: " + bestallareTel + "<br/>" +
+    //         "Betalsätt: " + betalsatt + "<br/>";
 
-        //sendemail
+    //     sendEmail();
+    //     //sendemail
 
-        var presentkortForm = document.getElementById("presentkort-form");
-        presentkortForm.style.display = 'none';
+    //     var presentkortForm = document.getElementById("presentkort-form");
+    //     presentkortForm.style.display = 'none';
 
-        var presentkortTackElement = document.getElementById("presentkort-tack-element");
-        presentkortTackElement.style.display = 'block';
+    //     var presentkortTackElement = document.getElementById("presentkort-tack-element");
+    //     presentkortTackElement.style.display = 'block';
 
-        var tackPosition = presentkortTackElement.getBoundingClientRect().top + document.documentElement.scrollTop - 100;
-        window.scrollTo(0, tackPosition);
-    }
+    //     var tackPosition = presentkortTackElement.getBoundingClientRect().top + document.documentElement.scrollTop - 100;
+    //     window.scrollTo(0, tackPosition);
+    // }
 
 
     event.preventDefault();
