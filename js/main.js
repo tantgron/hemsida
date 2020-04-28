@@ -38,9 +38,7 @@ $(function () {
     });
 
     $("#navbar-toggler").on("click", function () {
-        var navbarToggler = document.getElementById("navbar-toggler");
         var menuBackdrop = document.getElementById("menu-backdrop");
-        var navbar = document.getElementById("ftco-navbar");
         var isVisible = menuBackdrop.style.display !== "none";
 
         if (isVisible) {
