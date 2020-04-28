@@ -5,6 +5,16 @@ AOS.init({
 
 $(function () {
 
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
+
+        var topPosition = $($.attr(this, 'href')).offset().top;
+
+        $('html, body').animate({
+            scrollTop: topPosition
+        }, 500);
+    });
+
     var navMain = $("#ftco-nav");
     var navbarToggler = document.getElementById("navbar-toggler");
     var menuBackdrop = document.getElementById("menu-backdrop");
